@@ -1,1 +1,1 @@
-# HelloSpringBoot
+# SpringBootのお勉強をまったりやっていくレポジトリです。
