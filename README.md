@@ -17,3 +17,6 @@ SpringMVCのサンプル(Web)＋サーバーポートの変更例
 
 ###demoMapping
 リクエストとレスポンスのマッピングサンプル
+
+###demoUrlMapping
+@RequestMappingでメソッド（クラス）とパスをマッピングのマッピングするサンプル
