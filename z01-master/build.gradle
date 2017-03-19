@@ -1,0 +1,64 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.2.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+subprojects {
+    group 'com.example'
+
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+    apply plugin: 'org.springframework.boot'
+
+//    jar {
+//        baseName = 'client'
+//        version = '0.0.1-SNAPSHOT'
+//    }
+
+    bootRepackage {
+        enabled = false
+    }
+
+    sourceCompatibility = 1.8
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        compile('org.springframework.boot:spring-boot-starter-web')
+        compile('org.springframework.boot:spring-boot-starter-security')
+        compile('org.springframework.security.oauth:spring-security-oauth2')
+        compile('com.fasterxml.jackson.datatype:jackson-datatype-jsr310')
+        testCompile('org.springframework.boot:spring-boot-starter-test')
+    }
+
+}
+
+project(':z01-client') {
+    springBoot {
+        mainClass = 'com.example.ClientApplication'
+    }
+    dependencies {
+        compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+        compile('org.thymeleaf.extras:thymeleaf-extras-java8time')
+        compile('org.webjars:webjars-locator')
+        compile('org.webjars:bootstrap:3.3.7-1')
+    }
+}
+
+project(':z01-service-provider') {
+   dependencies {
+    compile('org.springframework.boot:spring-boot-starter-jdbc')
+    compile('com.vividsolutions:jts:1.13')
+    runtime('com.h2database:h2')
+   }
+}
+
