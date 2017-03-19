@@ -15,6 +15,6 @@ public class WebApiController {
 
     @RequestMapping(value="/null", method=RequestMethod.GET)
     public void method2() {
-        throw new NullPointerException("test exception");
+        throw new NullPointerException("test exception null");
     }
 }

@@ -16,6 +16,7 @@ public class MyExceptionResolver implements HandlerExceptionResolver {
 
         ModelAndView mv = new ModelAndView();
         mv.setViewName("my-error");
+        System.out.println(mv.toString());
 
         return mv;
     }
