@@ -55,10 +55,12 @@ project(':z01-client') {
 }
 
 project(':z01-service-provider') {
+    springBoot {
+        mainClass = 'com.example.ServiceProviderApplication'
+    }
    dependencies {
     compile('org.springframework.boot:spring-boot-starter-jdbc')
     compile('com.vividsolutions:jts:1.13')
     runtime('com.h2database:h2')
    }
 }
-
